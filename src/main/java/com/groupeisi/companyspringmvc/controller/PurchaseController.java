@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,16 +50,8 @@ public class PurchaseController {
     @PostMapping("/purchases")
     public String save(
             @RequestParam("reference") String productRef,
-            @RequestParam("date") String date,
             @RequestParam("quantity") String quantity) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date_ = null;
-        try {
-            date_ = sdf.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         double qte = Double.parseDouble(quantity);
 
         ProductEntity productEntity = new ProductEntity();
@@ -66,7 +59,7 @@ public class PurchaseController {
         product.setStock(product.getStock() + qte);
 
         if (product != null) {
-            PurchaseDto purchaseDto = new PurchaseDto(date_, qte, product);
+            PurchaseDto purchaseDto = new PurchaseDto(new Date(), qte, product);
 
             try {
                 purchasesService.save(purchaseDto);

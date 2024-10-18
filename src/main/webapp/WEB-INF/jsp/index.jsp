@@ -1,19 +1,14 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: fazeyna
-  Date: 08/09/2024
-  Time: 20:16
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <title>Title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link href="<c:url value="/resources/public/css/style.css" />" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <title>Page de connexion</title>
+<%--        <link rel="stylesheet" type="text/css"  href="<c:url value="/resources/public/css/style.css" />" />--%>
+        <style><%@include file="/WEB-INF/public/css/style.css"%></style>
     </head>
     <body>
         <img src="https://i.postimg.cc/MTRK7Thf/bg-form.jpg" alt="">

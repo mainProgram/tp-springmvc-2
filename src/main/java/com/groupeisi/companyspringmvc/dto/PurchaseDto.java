@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PurchaseDto {
 
-private long id;
+	private long id;
 	
 	private Date date;
 	

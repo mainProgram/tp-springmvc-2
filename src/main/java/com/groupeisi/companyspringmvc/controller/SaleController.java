@@ -58,23 +58,15 @@ public class SaleController {
     @PostMapping("/sales")
     public String saveSale(
             @RequestParam("reference") String productRef,
-            @RequestParam("date") String date,
             @RequestParam("quantity") String quantity) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date_ = null;
-        try {
-            date_ = sdf.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         double qte = Double.parseDouble(quantity);
 
 
         ProductEntity productEntity = new ProductEntity();
         ProductDto product = productService.getByid(productRef, productEntity);
         product.setStock(product.getStock() - qte);
-        SaleDto saleDto = new SaleDto(date_, qte, product);
+        SaleDto saleDto = new SaleDto(new Date(), qte, product);
 
         try {
             if (product != null) {
